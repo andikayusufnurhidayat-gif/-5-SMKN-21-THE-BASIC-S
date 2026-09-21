@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cf2kyq7dkola0"]
+
+[ext_resource type="PackedScene" uid="uid://behlr8iq1bi2t" path="res://ASSETS/StylooClassroomAssetPack GLTF & FBX/toilet/GLTF/toiletdemoscene.glb" id="1_dfyxy"]
+
+[node name="toiletdemoscene2" unique_id=1634122064 instance=ExtResource("1_dfyxy")]

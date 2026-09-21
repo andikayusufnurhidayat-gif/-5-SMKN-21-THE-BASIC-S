@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://blrt0hdl4u4dv"]
+
+[ext_resource type="PackedScene" uid="uid://cqqtd3qytv52l" path="res://ASSETS/StylooClassroomAssetPack GLTF & FBX/computer/GLTF/COMPUTERdemoscene.glb" id="1_unr3w"]
+
+[node name="COMPUTERdemoscene2" unique_id=529398943 instance=ExtResource("1_unr3w")]
