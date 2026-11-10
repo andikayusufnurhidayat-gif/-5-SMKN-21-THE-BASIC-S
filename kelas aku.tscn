@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dyulxdsmg2a4l"]
+
+[ext_resource type="PackedScene" uid="uid://bjmsdkowdtb1o" path="res://ASSETS/StylooClassroomAssetPack GLTF & FBX/classroom/GLTF/classroom_demoscene.glb" id="1_12kcf"]
+
+[node name="Node3D" type="Node3D" unique_id=737408690]
+
+[node name="classroom_demoscene" parent="." unique_id=1615008710 instance=ExtResource("1_12kcf")]
