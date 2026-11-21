@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.98, 0.92, 0.1, 1)
+metallic = 0.0
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+metallic = 0.0
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.2, 0.2, 0.22, 1)
+metallic = 0.0
+roughness = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4"]
+top_radius = 0.032
+bottom_radius = 0.032
+height = 0.26
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5"]
+top_radius = 0.0335
+bottom_radius = 0.0335
+height = 0.05
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6"]
+top_radius = 0.036
+bottom_radius = 0.036
+height = 0.09
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7"]
+top_radius = 0.03
+bottom_radius = 0.01
+height = 0.05
+radial_segments = 32
+
+[node name="Stabilo" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Band" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("CylinderMesh_5")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="Cap" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+mesh = SubResource("CylinderMesh_6")
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Tip" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.155, 0)
+mesh = SubResource("CylinderMesh_7")
+material_override = SubResource("StandardMaterial3D_1")

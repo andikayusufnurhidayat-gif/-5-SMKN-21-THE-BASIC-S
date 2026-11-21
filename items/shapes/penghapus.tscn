@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.88, 0.87, 0.8, 1)
+metallic = 0.0
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.55, 0.34, 0.16, 1)
+metallic = 0.0
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.25, 0.25, 0.27, 1)
+metallic = 0.0
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(0.1, 0.08, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5"]
+size = Vector3(0.102, 0.012, 0.062)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(0.1, 0.1, 0.06)
+
+[node name="Eraser" type="Node3D"]
+
+[node name="Felt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("BoxMesh_4")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Stripe" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.024, 0)
+mesh = SubResource("BoxMesh_5")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="Wood" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+mesh = SubResource("BoxMesh_6")
+material_override = SubResource("StandardMaterial3D_2")

@@ -11,12 +11,22 @@ config_version=5
 [application]
 
 config/name="SMKN21_The_Basics"
-run/main_scene="uid://b42iqu1oepci1"
+run/main_scene="uid://hdgntc2gpjir"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
+[autoload]
+
+AudioManager="*res://scripts/audio_manager.gd"
+GameState="*res://scripts/game_state.gd"
+
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

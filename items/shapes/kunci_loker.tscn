@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.9, 0.72, 0.2, 1)
+metallic = 0.9
+roughness = 0.3
+
+[sub_resource type="TorusMesh" id="TorusMesh_2"]
+inner_radius = 0.03
+outer_radius = 0.06
+rings = 32
+ring_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3"]
+top_radius = 0.014
+bottom_radius = 0.014
+height = 0.22
+radial_segments = 32
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(0.05, 0.025, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5"]
+size = Vector3(0.04, 0.025, 0.02)
+
+[node name="LockerKey" type="Node3D"]
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.13, 0)
+mesh = SubResource("TorusMesh_2")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Shaft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_3")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Tooth1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.07, 0)
+mesh = SubResource("BoxMesh_4")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Tooth2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, -0.1, 0)
+mesh = SubResource("BoxMesh_5")
+material_override = SubResource("StandardMaterial3D_1")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d3blqwbg7wu6t"]
+
+[ext_resource type="Script" uid="uid://bm6elrqrglulv" path="res://scripts/pickup_item.gd" id="1_nlrdd"]
+[ext_resource type="PackedScene" uid="uid://boky0hxwxirt" path="res://items/soda_can.glb" id="2_f2676"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jtiu"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="BakingSoda" type="Area3D" unique_id=1981784233]
+script = ExtResource("1_nlrdd")
+item_id = "baking_soda"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=873712245]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_2jtiu")
+
+[node name="soda_can" parent="." unique_id=1145714657 instance=ExtResource("2_f2676")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

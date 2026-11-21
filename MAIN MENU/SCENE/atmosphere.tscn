@@ -1,0 +1,166 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/menu_atmosphere.gd" id="1_r"]
+
+[sub_resource type="Gradient" id="Gradient_1"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.17, 0.03, 0.05, 1, 0.012, 0.008, 0.02, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2"]
+gradient = SubResource("Gradient_1")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.3, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3"]
+noise_type = 1
+seed = 11
+frequency = 0.006
+fractal_octaves = 4
+
+[sub_resource type="Gradient" id="Gradient_4"]
+offsets = PackedFloat32Array(0.42, 0.9)
+colors = PackedColorArray(0.62, 0.68, 0.85, 0, 0.62, 0.68, 0.85, 0.6)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5"]
+width = 512
+height = 512
+seamless = true
+color_ramp = SubResource("Gradient_4")
+noise = SubResource("FastNoiseLite_3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6"]
+noise_type = 1
+seed = 73
+frequency = 0.009
+fractal_octaves = 4
+
+[sub_resource type="Gradient" id="Gradient_7"]
+offsets = PackedFloat32Array(0.42, 0.9)
+colors = PackedColorArray(0.85, 0.4, 0.45, 0, 0.85, 0.4, 0.45, 0.6)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8"]
+width = 512
+height = 512
+seamless = true
+color_ramp = SubResource("Gradient_7")
+noise = SubResource("FastNoiseLite_6")
+
+[sub_resource type="Gradient" id="Gradient_9"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0.92, 0.92, 0, 1, 0.92, 0.92, 0.24, 1, 0.92, 0.92, 0)
+
+[sub_resource type="Gradient" id="Gradient_10"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 0.45, 0.3, 0.26, 1, 0.45, 0.3, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_11"]
+gradient = SubResource("Gradient_10")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_12"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_13"]
+offsets = PackedFloat32Array(0.42, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.93)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_14"]
+gradient = SubResource("Gradient_13")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Atmosphere" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_r")
+
+[node name="Base" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_2")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Fog1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.55)
+layout_mode = 0
+offset_left = -288
+offset_top = -162
+offset_right = 1440
+offset_bottom = 810
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_5")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Fog2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.4)
+layout_mode = 0
+offset_left = -288
+offset_top = -162
+offset_right = 1440
+offset_bottom = 810
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_8")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Dust" type="CPUParticles2D" parent="."]
+position = Vector2(576, 324)
+amount = 80
+lifetime = 14.0
+preprocess = 14.0
+emission_shape = 3
+emission_rect_extents = Vector2(576, 324)
+direction = Vector2(0.3, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 18.0
+scale_amount_min = 1.0
+scale_amount_max = 2.8
+color_ramp = SubResource("Gradient_9")
+
+[node name="Glow" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 76
+offset_top = -176
+offset_right = 1076
+offset_bottom = 824
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_11")
+expand_mode = 1
+stretch_mode = 0
+material = SubResource("CanvasItemMaterial_12")
+
+[node name="Vignette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_14")
+expand_mode = 1
+stretch_mode = 0

@@ -1,0 +1,269 @@
+[gd_scene format=3 uid="uid://djur4bsuv5n0f"]
+
+[ext_resource type="Theme" path="res://MAIN MENU/menu_theme.tres" id="1_r"]
+[ext_resource type="Script" uid="uid://tq0fa8ydwti6" path="res://MAIN MENU/SCRIPT/credits.gd" id="2_r"]
+[ext_resource type="PackedScene" path="res://MAIN MENU/SCENE/atmosphere.tscn" id="3_r"]
+[ext_resource type="Script" uid="uid://besgxqgr2psgy" path="res://MAIN MENU/SCRIPT/horror_button.gd" id="4_r"]
+
+[node name="Credits" type="Control" unique_id=729302321]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r")
+script = ExtResource("2_r")
+
+[node name="Atmosphere" parent="." unique_id=1499347304 instance=ExtResource("3_r")]
+layout_mode = 1
+follow_mouse = false
+
+[node name="Scroller" type="VBoxContainer" parent="." unique_id=1283240270]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(806.4, 0)
+layout_mode = 0
+offset_left = 172.8
+offset_top = 40.0
+offset_right = 979.2
+offset_bottom = 140.0
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Big01" type="Label" parent="Scroller" unique_id=519934081]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_colors/font_outline_color = Color(0.25, 0, 0.02, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 72
+text = "THE BASIC'S"
+horizontal_alignment = 1
+
+[node name="Sub02" type="Label" parent="Scroller" unique_id=1738448883]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 24
+text = "A School Adventure Game"
+horizontal_alignment = 1
+
+[node name="Gap03" type="Control" parent="Scroller" unique_id=1993267449]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Head04" type="Label" parent="Scroller" unique_id=1376659256]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "DEVELOPED BY"
+horizontal_alignment = 1
+
+[node name="Name05" type="Label" parent="Scroller" unique_id=172517157]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "Kelompok 5 PPLG"
+horizontal_alignment = 1
+
+[node name="Gap06" type="Control" parent="Scroller" unique_id=962481479]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Head07" type="Label" parent="Scroller" unique_id=672321073]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "PROGRAMMING"
+horizontal_alignment = 1
+
+[node name="Name08" type="Label" parent="Scroller" unique_id=939639816]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "Andika Yusuf Nurhidayat"
+horizontal_alignment = 1
+
+[node name="Gap09" type="Control" parent="Scroller" unique_id=1680083659]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Head10" type="Label" parent="Scroller" unique_id=1364417099]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "GAME DESIGNER"
+horizontal_alignment = 1
+
+[node name="Name11" type="Label" parent="Scroller" unique_id=765395479]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "Mayzura Azaliyyah Javier"
+horizontal_alignment = 1
+
+[node name="Gap12" type="Control" parent="Scroller" unique_id=1928829555]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Head13" type="Label" parent="Scroller" unique_id=197068454]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "ART & VISUAL"
+horizontal_alignment = 1
+
+[node name="Name14" type="Label" parent="Scroller" unique_id=9794282]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "Syafira Fitriani"
+horizontal_alignment = 1
+
+[node name="Gap15" type="Control" parent="Scroller" unique_id=1771995240]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Head16" type="Label" parent="Scroller" unique_id=1849551640]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "SOUND & MUSIC"
+horizontal_alignment = 1
+
+[node name="Name17" type="Label" parent="Scroller" unique_id=1120441858]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "Issabel Aura Romantika"
+horizontal_alignment = 1
+
+[node name="Gap18" type="Control" parent="Scroller" unique_id=579880363]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Head19" type="Label" parent="Scroller" unique_id=18695039]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "SPECIAL THANKS"
+horizontal_alignment = 1
+
+[node name="Name20" type="Label" parent="Scroller" unique_id=1471059051]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "SMKN 21 Jakarta"
+horizontal_alignment = 1
+
+[node name="Gap21" type="Control" parent="Scroller" unique_id=1526804528]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Name22" type="Label" parent="Scroller" unique_id=498167341]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 28
+text = "Created with Godot Engine"
+horizontal_alignment = 1
+
+[node name="Gap23" type="Control" parent="Scroller" unique_id=1316655199]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Gap24" type="Control" parent="Scroller" unique_id=1324582583]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Thanks25" type="Label" parent="Scroller" unique_id=1074595386]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/font_size = 40
+text = "Thank You For Playing!"
+horizontal_alignment = 1
+
+[node name="Gap26" type="Control" parent="Scroller" unique_id=1752480681]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Gap27" type="Control" parent="Scroller" unique_id=827892709]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Ghost28" type="Label" parent="Scroller" unique_id=1794572590]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 0.6)
+theme_override_font_sizes/font_size = 22
+text = "The school is quiet tonight."
+horizontal_alignment = 1
+
+[node name="Ghost29" type="Label" parent="Scroller" unique_id=22098603]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 0.6)
+theme_override_font_sizes/font_size = 22
+text = "Are you sure you're alone?"
+horizontal_alignment = 1
+
+[node name="Ghost30" type="Label" parent="Scroller" unique_id=1822339720]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 0.6)
+theme_override_font_sizes/font_size = 22
+text = "Some doors were never meant to be opened."
+horizontal_alignment = 1
+
+[node name="Ghost31" type="Label" parent="Scroller" unique_id=1597841987]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 0.6)
+theme_override_font_sizes/font_size = 22
+text = "Keep exploring..."
+horizontal_alignment = 1
+
+[node name="Ghost32" type="Label" parent="Scroller" unique_id=717902232]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 0.6)
+theme_override_font_sizes/font_size = 22
+text = "Something is waiting for you..."
+horizontal_alignment = 1
+
+[node name="Gap33" type="Control" parent="Scroller" unique_id=805164553]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Gap34" type="Control" parent="Scroller" unique_id=1227953617]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Foot35" type="Label" parent="Scroller" unique_id=540845074]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.4)
+theme_override_font_sizes/font_size = 18
+text = "© 2026 THE BASIC'S"
+horizontal_alignment = 1
+
+[node name="BtnBack" type="Button" parent="." unique_id=363212167]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -80.0
+offset_right = 240.0
+offset_bottom = -34.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "BACK"
+alignment = 0
+script = ExtResource("4_r")

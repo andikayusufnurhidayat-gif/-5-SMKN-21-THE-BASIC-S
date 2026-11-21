@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.8, 0.15, 0.15, 1)
+metallic = 0.0
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.62, 0.1, 0.1, 1)
+metallic = 0.0
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.14, 0.14, 0.16, 1)
+metallic = 0.0
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(0.3, 0.4, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5"]
+size = Vector3(0.31, 0.06, 0.17)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(0.24, 0.17, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7"]
+size = Vector3(0.22, 0.012, 0.012)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8"]
+size = Vector3(0.05, 0.3, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_9"]
+size = Vector3(0.05, 0.3, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_10"]
+size = Vector3(0.1, 0.03, 0.03)
+
+[node name="Backpack" type="Node3D"]
+
+[node name="Main" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_4")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Flap" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0)
+mesh = SubResource("BoxMesh_5")
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Pocket" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.11)
+mesh = SubResource("BoxMesh_6")
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Zip" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, 0.142)
+mesh = SubResource("BoxMesh_7")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="StrapL" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.0, -0.092)
+mesh = SubResource("BoxMesh_8")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="StrapR" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.0, -0.092)
+mesh = SubResource("BoxMesh_9")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="Handle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225, 0)
+mesh = SubResource("BoxMesh_10")
+material_override = SubResource("StandardMaterial3D_3")

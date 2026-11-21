@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://qw7hh40eemfl"]
+
+[ext_resource type="Theme" path="res://MAIN MENU/menu_theme.tres" id="1_r"]
+[ext_resource type="Script" uid="uid://ye2tgdtevcbp" path="res://scripts/pause_menu.gd" id="2_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/horror_button.gd" id="3_r"]
+
+[sub_resource type="Gradient" id="Gradient_1"]
+offsets = PackedFloat32Array(0.3, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.9)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2"]
+gradient = SubResource("Gradient_1")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("2_r")
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r")
+
+[node name="Dim" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03, 0, 0.01, 0.8)
+
+[node name="Vignette" type="TextureRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_2")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 36
+
+[node name="Col" type="VBoxContainer" parent="Root/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Title" type="Label" parent="Root/Margin/Col"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.8, 0, 0.05, 0.45)
+theme_override_colors/font_outline_color = Color(0.25, 0, 0.02, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 72
+text = "PAUSED"
+
+[node name="Line" type="ColorRect" parent="Root/Margin/Col"]
+custom_minimum_size = Vector2(140, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.92, 0.18, 0.18, 1)
+
+[node name="Subtitle" type="Label" parent="Root/Margin/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 20
+text = "Permainan dijeda. Bu Jennifer menunggu..."
+
+[node name="Gap" type="Control" parent="Root/Margin/Col"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Root/Margin/Col"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="ResumeButton" type="Button" parent="Root/Margin/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "RESUME"
+alignment = 0
+script = ExtResource("3_r")
+
+[node name="MenuButton" type="Button" parent="Root/Margin/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "MAIN MENU"
+alignment = 0
+script = ExtResource("3_r")
+
+[node name="QuitButton" type="Button" parent="Root/Margin/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "QUIT"
+alignment = 0
+script = ExtResource("3_r")
+
+[node name="Hint" type="Label" parent="Root/Margin/Col"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.35)
+theme_override_font_sizes/font_size = 16
+text = "ESC  untuk melanjutkan"

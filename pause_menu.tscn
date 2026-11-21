@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://qw7hh40eemfl"]
+
+[sub_resource type="GDScript" id="GDScript_wyi4u"]
+script/source = "extends CanvasLayer
+
+func _ready():
+	print(\"PAUSEMENU READY\")
+	visible = false
+	$VBoxContainer/ResumeButton.pressed.connect(resume)
+	$VBoxContainer/MenuButton.pressed.connect(go_to_menu)
+	$VBoxContainer/QuitButton.pressed.connect(get_tree().quit)
+
+func _input(event):
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		print(\"ESC DITEKAN\")
+		if get_tree().paused:
+			resume()
+		else:
+			pause()
+		get_viewport().set_input_as_handled()
+
+func pause():
+	get_tree().paused = true
+	visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func resume():
+	get_tree().paused = false
+	visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func go_to_menu():
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file(\"res://MAIN MENU/SCENE/MainMenu.tscn\")
+"
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1757816684]
+process_mode = 3
+script = SubResource("GDScript_wyi4u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=586028575]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=592662332]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=463504014]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=1948309218]
+layout_mode = 2
+text = "RESUME"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=119242340]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1203233324]
+layout_mode = 2
+text = "Quit"

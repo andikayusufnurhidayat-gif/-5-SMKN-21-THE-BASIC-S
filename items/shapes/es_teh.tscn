@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.76, 0.44, 0.14, 1)
+metallic = 0.0
+roughness = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.97, 0.97, 0.97, 1)
+metallic = 0.0
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.85, 0.12, 0.12, 1)
+metallic = 0.0
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4"]
+albedo_color = Color(0.9, 0.96, 1.0, 1)
+metallic = 0.0
+roughness = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5"]
+top_radius = 0.065
+bottom_radius = 0.045
+height = 0.18
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6"]
+top_radius = 0.0655
+bottom_radius = 0.0655
+height = 0.02
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.015
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8"]
+top_radius = 0.008
+bottom_radius = 0.008
+height = 0.15
+radial_segments = 32
+
+[node name="IcedTea" type="Node3D"]
+
+[node name="Cup" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_5")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Foam" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082, 0)
+mesh = SubResource("CylinderMesh_6")
+material_override = SubResource("StandardMaterial3D_4")
+
+[node name="Lid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0975, 0)
+mesh = SubResource("CylinderMesh_7")
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Straw" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.17, 0)
+mesh = SubResource("CylinderMesh_8")
+material_override = SubResource("StandardMaterial3D_3")

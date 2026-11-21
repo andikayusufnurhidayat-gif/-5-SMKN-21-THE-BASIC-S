@@ -1,0 +1,344 @@
+[gd_scene format=3 uid="uid://bpnqhwxdbf1sb"]
+
+[ext_resource type="Theme" path="res://MAIN MENU/menu_theme.tres" id="1_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/options.gd" id="2_r"]
+[ext_resource type="PackedScene" path="res://MAIN MENU/SCENE/atmosphere.tscn" id="3_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/horror_button.gd" id="4_r"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r")
+script = ExtResource("2_r")
+
+[node name="Atmosphere" parent="." instance=ExtResource("3_r")]
+unique_name_in_owner = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 36
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Margin/Root"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.25, 0, 0.02, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "OPTIONS"
+
+[node name="Line" type="ColorRect" parent="Margin/Root"]
+custom_minimum_size = Vector2(120, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.92, 0.18, 0.18, 1)
+
+[node name="Panel" type="PanelContainer" parent="Margin/Root"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"OptionsPanel"
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Root/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(820, 398)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="Margin/Root/Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SectionAudio" type="Label" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 18
+text = "AUDIO"
+
+[node name="SepAudio" type="ColorRect" parent="Margin/Root/Panel/Scroll/List"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowMaster" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowMaster"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Margin/Root/Panel/Scroll/List/RowMaster"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 28)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0
+max_value = 100
+value = 0
+
+[node name="MasterPct" type="Label" parent="Margin/Root/Panel/Scroll/List/RowMaster"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 20
+text = "0%"
+
+[node name="RowMusic" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowMusic"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Volume Musik"
+
+[node name="MusicSlider" type="HSlider" parent="Margin/Root/Panel/Scroll/List/RowMusic"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 28)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0
+max_value = 100
+value = 0
+
+[node name="MusicPct" type="Label" parent="Margin/Root/Panel/Scroll/List/RowMusic"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 20
+text = "0%"
+
+[node name="SectionKontrol" type="Label" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 18
+text = "KONTROL"
+
+[node name="SepKontrol" type="ColorRect" parent="Margin/Root/Panel/Scroll/List"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowSens" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowSens"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Sensitivitas Mouse"
+
+[node name="SensSlider" type="HSlider" parent="Margin/Root/Panel/Scroll/List/RowSens"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 28)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 25
+max_value = 200
+value = 25
+
+[node name="SensPct" type="Label" parent="Margin/Root/Panel/Scroll/List/RowSens"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 20
+text = "25%"
+
+[node name="SectionDisplay" type="Label" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 18
+text = "TAMPILAN & PERFORMA"
+
+[node name="SepDisplay" type="ColorRect" parent="Margin/Root/Panel/Scroll/List"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowMode" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowMode"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Mode Layar"
+
+[node name="ModeBtn" type="Button" parent="Margin/Root/Panel/Scroll/List/RowMode"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "‹  Jendela  ›"
+alignment = 1
+script = ExtResource("4_r")
+arrow = false
+choices = PackedStringArray("Jendela", "Layar Penuh")
+
+[node name="RowQuality" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowQuality"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Kualitas Grafis"
+
+[node name="QualityBtn" type="Button" parent="Margin/Root/Panel/Scroll/List/RowQuality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "‹  Rendah  ›"
+alignment = 1
+script = ExtResource("4_r")
+arrow = false
+choices = PackedStringArray("Rendah", "Sedang", "Tinggi")
+
+[node name="RowFps" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowFps"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Batas FPS"
+
+[node name="FpsBtn" type="Button" parent="Margin/Root/Panel/Scroll/List/RowFps"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "‹  30  ›"
+alignment = 1
+script = ExtResource("4_r")
+arrow = false
+choices = PackedStringArray("30", "60", "Tanpa batas")
+
+[node name="RowVsync" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowVsync"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "VSync"
+
+[node name="VsyncBtn" type="Button" parent="Margin/Root/Panel/Scroll/List/RowVsync"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "‹  Mati  ›"
+alignment = 1
+script = ExtResource("4_r")
+arrow = false
+choices = PackedStringArray("Mati", "Nyala")
+
+[node name="RowShowFps" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowShowFps"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Tampilkan FPS"
+
+[node name="ShowFpsBtn" type="Button" parent="Margin/Root/Panel/Scroll/List/RowShowFps"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "‹  Mati  ›"
+alignment = 1
+script = ExtResource("4_r")
+arrow = false
+choices = PackedStringArray("Mati", "Nyala")
+
+[node name="RowEffects" type="HBoxContainer" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/Root/Panel/Scroll/List/RowEffects"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 22
+text = "Efek Menu (kabut & debu)"
+
+[node name="EffectsBtn" type="Button" parent="Margin/Root/Panel/Scroll/List/RowEffects"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "‹  Mati  ›"
+alignment = 1
+script = ExtResource("4_r")
+arrow = false
+choices = PackedStringArray("Mati", "Nyala")
+
+[node name="Tip" type="Label" parent="Margin/Root/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_font_sizes/font_size = 16
+text = "Tip laptop spek rendah: Kualitas Grafis Rendah, Batas FPS 30, dan Efek Menu Mati."
+autowrap_mode = 3
+
+[node name="Bottom" type="HBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnBack" type="Button" parent="Margin/Root/Bottom"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+alignment = 0
+script = ExtResource("4_r")
+
+[node name="BtnReset" type="Button" parent="Margin/Root/Bottom"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RESET DEFAULT"
+alignment = 0
+script = ExtResource("4_r")

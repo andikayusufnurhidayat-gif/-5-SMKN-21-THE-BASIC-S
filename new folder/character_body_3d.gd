@@ -7,6 +7,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
 
+func _ready():
+	print("CHARACTER BODY JALAN")
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 

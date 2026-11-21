@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3]
+
+[sub_resource type="StandardMaterial3D" id="gold"]
+albedo_color = Color(1, 0.78, 0.15, 1)
+metallic = 0.9
+roughness = 0.25
+emission_enabled = true
+emission = Color(1, 0.55, 0.05, 1)
+emission_energy_multiplier = 0.9
+
+[sub_resource type="StandardMaterial3D" id="red"]
+albedo_color = Color(0.8, 0.05, 0.1, 1)
+emission_enabled = true
+emission = Color(0.9, 0.05, 0.1, 1)
+emission_energy_multiplier = 1.2
+
+[sub_resource type="TorusMesh" id="ring"]
+material = SubResource("gold")
+inner_radius = 0.065
+outer_radius = 0.125
+
+[sub_resource type="CylinderMesh" id="shaft"]
+material = SubResource("gold")
+top_radius = 0.028
+bottom_radius = 0.028
+height = 0.4
+
+[sub_resource type="CylinderMesh" id="collar"]
+material = SubResource("gold")
+top_radius = 0.048
+bottom_radius = 0.048
+height = 0.03
+
+[sub_resource type="BoxMesh" id="tooth_a"]
+material = SubResource("gold")
+size = Vector3(0.1, 0.04, 0.035)
+
+[sub_resource type="BoxMesh" id="tooth_b"]
+material = SubResource("gold")
+size = Vector3(0.07, 0.04, 0.035)
+
+[sub_resource type="SphereMesh" id="gem"]
+material = SubResource("red")
+radius = 0.035
+height = 0.07
+
+[sub_resource type="BoxMesh" id="ribbon"]
+material = SubResource("red")
+size = Vector3(0.07, 0.17, 0.01)
+
+[sub_resource type="BoxMesh" id="ribbon_tail"]
+material = SubResource("red")
+size = Vector3(0.03, 0.09, 0.01)
+
+[node name="KunciGerbang" type="Node3D"]
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.5, 0)
+mesh = SubResource("ring")
+
+[node name="Gem" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.655, 0)
+mesh = SubResource("gem")
+
+[node name="Shaft" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.2, 0)
+mesh = SubResource("shaft")
+
+[node name="Collar" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.33, 0)
+mesh = SubResource("collar")
+
+[node name="ToothA" type="MeshInstance3D" parent="."]
+position = Vector3(0.065, 0.03, 0)
+mesh = SubResource("tooth_a")
+
+[node name="ToothB" type="MeshInstance3D" parent="."]
+position = Vector3(0.05, 0.1, 0)
+mesh = SubResource("tooth_b")
+
+[node name="ToothC" type="MeshInstance3D" parent="."]
+position = Vector3(0.065, 0.17, 0)
+mesh = SubResource("tooth_a")
+
+[node name="Ribbon" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.25, 0.04)
+mesh = SubResource("ribbon")
+
+[node name="RibbonTail" type="MeshInstance3D" parent="."]
+position = Vector3(0.025, 0.14, 0.04)
+mesh = SubResource("ribbon_tail")

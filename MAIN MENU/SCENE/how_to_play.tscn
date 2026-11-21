@@ -1,0 +1,500 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://MAIN MENU/menu_theme.tres" id="1_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/how_to_play.gd" id="2_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/horror_button.gd" id="3_r"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r")
+script = ExtResource("2_r")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+layout_mode = 2
+theme_type_variation = &"HelpPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Head" type="Label" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 38
+text = "CARA BERMAIN"
+horizontal_alignment = 1
+
+[node name="TabRow" type="HBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TabGoal" type="Button" parent="Center/Panel/VBox/TabRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TUJUAN"
+alignment = 1
+script = ExtResource("3_r")
+arrow = false
+
+[node name="TabControls" type="Button" parent="Center/Panel/VBox/TabRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "KONTROL"
+alignment = 1
+script = ExtResource("3_r")
+arrow = false
+
+[node name="TabItems" type="Button" parent="Center/Panel/VBox/TabRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ITEM & TIPS"
+alignment = 1
+script = ExtResource("3_r")
+arrow = false
+
+[node name="Stack" type="VBoxContainer" parent="Center/Panel/VBox"]
+layout_mode = 2
+
+[node name="PageGoal" type="ScrollContainer" parent="Center/Panel/VBox/Stack"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(940, 368)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginGoal" type="MarginContainer" parent="Center/Panel/VBox/Stack/PageGoal"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 16
+
+[node name="PageControls" type="ScrollContainer" parent="Center/Panel/VBox/Stack"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(940, 368)
+layout_mode = 2
+visible = false
+horizontal_scroll_mode = 0
+
+[node name="MarginControls" type="MarginContainer" parent="Center/Panel/VBox/Stack/PageControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 16
+
+[node name="PageItems" type="ScrollContainer" parent="Center/Panel/VBox/Stack"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(940, 368)
+layout_mode = 2
+visible = false
+horizontal_scroll_mode = 0
+
+[node name="MarginItems" type="MarginContainer" parent="Center/Panel/VBox/Stack/PageItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 16
+
+[node name="GoalText" type="RichTextLabel" parent="Center/Panel/VBox/Stack/PageGoal/MarginGoal"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b][color=#e8392f]CERITA[/color][/b]\nSekolah udah bubar, tapi temanmu lagi kena masalah! Dia ninggalin semua buku catatannya di sekolah karena kecerobohannya, dan nggak sempat balik ambil karena harus buru-buru pulang. Masalah yang malah nyusahin kamu sendiri, emang beban tuh temenmu!\n\nJadi kamu harus balik ke sekolah malam-malam dan mencari semua buku catatannya. Nggak akan gampang! Guru di sekolah ini, Bu Jennifer, suka ngasih soal dadakan tiap kali ketemu kamu. Entah kenapa... mungkin dia punya masalah personal sama kamu.. :)\n\n[b][color=#e8392f]CARA MENANG[/color][/b]\n[b]1. Kumpulkan 7 buku catatan.[/b] Tiap buku ditemukan, kamu harus menjawab soal dalam 30 detik. Jawaban salah bikin Bu Jennifer makin cepat, dan hati-hati, ada buku yang soalnya jebakan.\n\n[b]2. Kumpulkan semua potongan kunci.[/b] Tiap potongan punya syarat sendiri: ditahan beberapa detik (berisik, Bu Jennifer akan datang!), butuh 1 koin, atau hanya bisa diambil saat Bu Jennifer sedang jauh. Kalau lengkap, Kunci Gerbang masuk ke inventory-mu.\n\n[b]3. Kabur lewat gerbang.[/b] Setelah semua buku terkumpul, Bu Jennifer ngamuk! Buka gerbang pakai Kunci Gerbang (klik kanan dari dekat), lalu lari keluar.\n\n[b][color=#e8392f]KALAH[/color][/b]\nKalau tertangkap Bu Jennifer, game over dan kamu kembali ke menu utama.\n\nSelamat bermain, dan semoga berhasil!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 3
+
+[node name="ControlsGrid" type="GridContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 14
+columns = 2
+
+[node name="Keys1" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "W"
+
+[node name="Key2" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1/Key2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "A"
+
+[node name="Key3" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1/Key3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "S"
+
+[node name="Key4" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys1/Key4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "D"
+
+[node name="Desc1" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Berjalan."
+autowrap_mode = 3
+
+[node name="Keys2" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys2"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys2/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Shift"
+
+[node name="Desc2" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Lari. Memakai stamina; kalau habis, kamu harus menunggu pulih dulu."
+autowrap_mode = 3
+
+[node name="Keys3" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys3"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys3/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Mouse"
+
+[node name="Desc3" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Menengok ke segala arah."
+autowrap_mode = 3
+
+[node name="Keys4" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys4"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys4/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Tombol Panah"
+
+[node name="Desc4" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Menengok juga bisa pakai tombol panah (enak kalau pakai touchpad)."
+autowrap_mode = 3
+
+[node name="Keys5" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys5"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys5/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Spasi"
+
+[node name="Desc5" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Tahan untuk melihat ke belakang, lepas untuk kembali. Cek dulu apakah Bu Jennifer mengejarmu!"
+autowrap_mode = 3
+
+[node name="Keys6" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys6"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys6/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "E"
+
+[node name="Desc6" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Sembunyi di lemari / kolong meja kalau dekat, tekan E lagi untuk keluar. Juga untuk mengambil potongan kunci (tahan kalau diminta)."
+autowrap_mode = 3
+
+[node name="Keys7" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys7"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys7/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Klik Kiri"
+
+[node name="Desc7" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Mengambil buku & benda. Di mesin kantin: ganti pilihan barang."
+autowrap_mode = 3
+
+[node name="Keys8" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys8"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys8/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Klik Kanan"
+
+[node name="Text2" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys8"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+theme_override_font_sizes/font_size = 18
+text = "atau"
+
+[node name="Key3" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys8"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys8/Key3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "F"
+
+[node name="Desc8" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Memakai item yang dipilih: lempar, tiup peluit, taruh lem, buka loker / gerbang, atau beli di mesin kantin pakai koin."
+autowrap_mode = 3
+
+[node name="Keys9" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[node name="Key2" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9/Key2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "2"
+
+[node name="Key3" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9/Key3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "3"
+
+[node name="Key4" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9/Key4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "4"
+
+[node name="Text5" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+theme_override_font_sizes/font_size = 18
+text = "atau"
+
+[node name="Key6" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys9/Key6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Scroll Mouse"
+
+[node name="Desc9" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Memilih slot inventory. Slot 4 baru terbuka kalau kamu dapat Tas Ransel."
+autowrap_mode = 3
+
+[node name="Keys10" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys10"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys10/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Ketik"
+
+[node name="Key2" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys10"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys10/Key2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Enter"
+
+[node name="Desc10" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Menjawab soal dadakan dari buku: ketik jawabannya lalu tekan Enter."
+autowrap_mode = 3
+
+[node name="Keys11" type="HBoxContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key1" type="PanelContainer" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys11"]
+layout_mode = 2
+theme_type_variation = &"Chip"
+
+[node name="Label" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid/Keys11/Key1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Esc"
+
+[node name="Desc11" type="Label" parent="Center/Panel/VBox/Stack/PageControls/MarginControls/ControlsGrid"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Kembali / menutup panel di menu."
+autowrap_mode = 3
+
+[node name="ItemText" type="RichTextLabel" parent="Center/Panel/VBox/Stack/PageItems/MarginItems"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.93, 0.91, 0.86, 1)
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b][color=#e8392f]ITEM[/color][/b]\n[b]Baking Soda[/b] (lempar): menutup jalan di lantai, Bu Jennifer tidak bisa lewat sekitar 12 detik.\n[b]Penghapus Papan Tulis[/b] (lempar): kalau kena, Bu Jennifer terbatuk dan berhenti sekitar 3 detik.\n[b]Peluit[/b]: Bu Jennifer tertarik ke arah bunyinya. Pancing dia menjauh!\n[b]Lem[/b]: taruh di lantai. Kalau diinjak, Bu Jennifer jalan pelan sekitar 5 detik.\n[b]Stabilo[/b]: menyorot buku yang tersembunyi selama sekitar 10 detik.\n[b]Es Teh[/b]: stamina bertambah dan kamu lebih cepat selama sekitar 8 detik.\n[b]Cokelat[/b]: stamina langsung penuh.\n[b]Koin[/b]: dipakai membeli barang di mesin kantin (1 koin = 1 barang), dan dibutuhkan untuk salah satu potongan kunci.\n[b]Kunci Loker[/b]: membuka loker terkunci (hadap loker, klik kanan).\n[b]Tas Ransel[/b]: langsung menambah 1 slot inventory.\n[b]Kunci Gerbang[/b]: hasil dari potongan kunci, untuk membuka gerbang sekolah.\n\n[b][color=#e8392f]TIPS[/color][/b]\n• Bu Jennifer mulai mengejar setelah buku pertama diambil. Kalau dia dekat, sembunyi (E) dan diam.\n• Lihat ke belakang (tahan Spasi) sebelum kamu memutuskan lari.\n• Jangan boros stamina. Kalau habis, kamu tidak bisa lari sampai pulih.\n• Jawab soal dengan teliti. Jawaban salah membuatnya makin cepat.\n• Berisik itu berbahaya: mengambil potongan kunci tertentu akan memancing Bu Jennifer ke tempatmu."
+fit_content = true
+scroll_active = false
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="Center/Panel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"PrimaryButton"
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+alignment = 1
+script = ExtResource("3_r")
+arrow = false

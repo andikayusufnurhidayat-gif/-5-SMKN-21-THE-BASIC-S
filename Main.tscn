@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b42iqu1oepci1"]
 
-[ext_resource type="Script" uid="uid://bstkhcls8ongo" path="res://player.gd" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://dos5sdl068x2q" path="res://new folder/Character_01.fbx" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://duj2loyyrhcm6" path="res://new folder/UAL1_Standard.glb" id="2_uu6xs"]
 
@@ -20,7 +19,6 @@ size = Vector3(0.5128174, 1.7186279, 1)
 [node name="Node3D" type="Node3D" unique_id=2132383989]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=671481997]
-script = ExtResource("1_glv2v")
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=307531142]
 transform = Transform3D(1, 0, 0, 0, 0.9063078, 0.4226183, 0, -0.4226183, 0.9063078, -0.18176651, 1.7402512, 8.752343)

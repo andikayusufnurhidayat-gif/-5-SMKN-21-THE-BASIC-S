@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://hdgntc2gpjir"]
+
+[ext_resource type="Theme" path="res://MAIN MENU/menu_theme.tres" id="1_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/mainmenu.gd" id="2_r"]
+[ext_resource type="PackedScene" path="res://MAIN MENU/SCENE/atmosphere.tscn" id="3_r"]
+[ext_resource type="PackedScene" path="res://MAIN MENU/SCENE/how_to_play.tscn" id="4_r"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/horror_button.gd" id="5_r"]
+[ext_resource type="AudioStream" path="res://audio/SMKN21_MainMenu_Horror_Piano_Loop.wav" id="6_r"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_2"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.35, 0.5, 0.9, 0.32, 0.35, 0.5, 0.9, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3"]
+gradient = SubResource("Gradient_2")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r")
+script = ExtResource("2_r")
+
+[node name="Musikkmenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r")
+
+[node name="Atmosphere" parent="." instance=ExtResource("3_r")]
+
+[node name="WindowDecor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Beam" type="Polygon2D" parent="WindowDecor"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_1")
+color = Color(0.6, 0.7, 1, 0.1)
+polygon = PackedVector2Array(760.32, 508.032, 1036.8, 508.032, 460.8, 648, 184.32, 648)
+vertex_colors = PackedColorArray(0.6, 0.7, 1, 0.12, 0.6, 0.7, 1, 0.12, 0.6, 0.7, 1, 0, 0.6, 0.7, 1, 0)
+
+[node name="WinGlow" type="TextureRect" parent="WindowDecor"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 456.192
+offset_top = -176.256
+offset_right = 1340.928
+offset_bottom = 777.6
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_3")
+expand_mode = 1
+stretch_mode = 0
+material = SubResource("CanvasItemMaterial_1")
+
+[node name="Frame" type="ColorRect" parent="WindowDecor"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 750.32
+offset_top = 83.312
+offset_right = 1046.8
+offset_bottom = 518.032
+mouse_filter = 2
+color = Color(0.012, 0.012, 0.018, 1)
+
+[node name="Pane1" type="ColorRect" parent="WindowDecor"]
+layout_mode = 0
+offset_left = 760.32
+offset_top = 93.312
+offset_right = 893.56
+offset_bottom = 224.8853
+mouse_filter = 2
+color = Color(0.5, 0.62, 0.9, 0.17)
+
+[node name="Pane2" type="ColorRect" parent="WindowDecor"]
+layout_mode = 0
+offset_left = 903.56
+offset_top = 93.312
+offset_right = 1036.8
+offset_bottom = 224.8853
+mouse_filter = 2
+color = Color(0.5, 0.62, 0.9, 0.22)
+
+[node name="Pane3" type="ColorRect" parent="WindowDecor"]
+layout_mode = 0
+offset_left = 760.32
+offset_top = 234.8853
+offset_right = 893.56
+offset_bottom = 366.4587
+mouse_filter = 2
+color = Color(0.5, 0.62, 0.9, 0.27)
+
+[node name="Pane4" type="ColorRect" parent="WindowDecor"]
+layout_mode = 0
+offset_left = 903.56
+offset_top = 234.8853
+offset_right = 1036.8
+offset_bottom = 366.4587
+mouse_filter = 2
+color = Color(0.5, 0.62, 0.9, 0.17)
+
+[node name="Pane5" type="ColorRect" parent="WindowDecor"]
+layout_mode = 0
+offset_left = 760.32
+offset_top = 376.4587
+offset_right = 893.56
+offset_bottom = 508.032
+mouse_filter = 2
+color = Color(0.5, 0.62, 0.9, 0.22)
+
+[node name="Pane6" type="ColorRect" parent="WindowDecor"]
+layout_mode = 0
+offset_left = 903.56
+offset_top = 376.4587
+offset_right = 1036.8
+offset_bottom = 508.032
+mouse_filter = 2
+color = Color(0.5, 0.62, 0.9, 0.27)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 36
+
+[node name="Root" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Col" type="VBoxContainer" parent="Margin/Root"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Title" type="Label" parent="Margin/Root/Col"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.8, 0, 0.05, 0.45)
+theme_override_colors/font_outline_color = Color(0.25, 0, 0.02, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 86
+
+[node name="Line" type="ColorRect" parent="Margin/Root/Col"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.92, 0.18, 0.18, 1)
+
+[node name="Subtitle" type="Label" parent="Margin/Root/Col"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1)
+theme_override_font_sizes/font_size = 20
+text = "Sekolah sudah sepi... tapi kamu tidak sendirian."
+
+[node name="Gap" type="Control" parent="Margin/Root/Col"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="List" type="VBoxContainer" parent="Margin/Root/Col"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="BtnPlay" type="Button" parent="Margin/Root/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "PLAY"
+alignment = 0
+script = ExtResource("5_r")
+
+[node name="BtnHowToPlay" type="Button" parent="Margin/Root/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "HOW TO PLAY"
+alignment = 0
+script = ExtResource("5_r")
+
+[node name="BtnOptions" type="Button" parent="Margin/Root/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "OPTIONS"
+alignment = 0
+script = ExtResource("5_r")
+
+[node name="BtnCredit" type="Button" parent="Margin/Root/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "CREDIT"
+alignment = 0
+script = ExtResource("5_r")
+
+[node name="BtnQuit" type="Button" parent="Margin/Root/Col/List"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "QUIT"
+alignment = 0
+script = ExtResource("5_r")
+
+[node name="Footer" type="Label" parent="Margin/Root"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.35)
+theme_override_font_sizes/font_size = 16
+text = "SMKN 21 JAKARTA   •   © 2026 THE BASIC'S"
+
+[node name="HowToPlay" parent="." instance=ExtResource("4_r")]
+unique_name_in_owner = true
+visible = false

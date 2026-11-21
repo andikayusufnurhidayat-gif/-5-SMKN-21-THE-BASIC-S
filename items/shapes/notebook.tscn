@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.2, 0.4, 0.9, 1)
+metallic = 0.0
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.12, 0.25, 0.65, 1)
+metallic = 0.0
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.96, 0.95, 0.88, 1)
+metallic = 0.0
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4"]
+albedo_color = Color(0.97, 0.97, 0.97, 1)
+metallic = 0.0
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_5"]
+size = Vector3(0.3, 0.4, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(0.28, 0.38, 0.022)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7"]
+size = Vector3(0.3, 0.4, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8"]
+size = Vector3(0.03, 0.4, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_9"]
+size = Vector3(0.16, 0.1, 0.002)
+
+[node name="Notebook" type="Node3D"]
+
+[node name="BackCover" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.015)
+mesh = SubResource("BoxMesh_5")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Pages" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
+mesh = SubResource("BoxMesh_6")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="FrontCover" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.015)
+mesh = SubResource("BoxMesh_7")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Spine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135, 0, 0)
+mesh = SubResource("BoxMesh_8")
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Label" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.08, 0.021)
+mesh = SubResource("BoxMesh_9")
+material_override = SubResource("StandardMaterial3D_4")

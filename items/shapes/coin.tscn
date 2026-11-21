@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.95, 0.76, 0.18, 1)
+metallic = 0.85
+roughness = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+albedo_color = Color(0.78, 0.58, 0.1, 1)
+metallic = 0.85
+roughness = 0.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.03
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4"]
+top_radius = 0.105
+bottom_radius = 0.105
+height = 0.036
+radial_segments = 32
+
+[node name="Coin" type="Node3D"]
+
+[node name="Disc" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("CylinderMesh_3")
+material_override = SubResource("StandardMaterial3D_1")
+
+[node name="Emboss" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4")
+material_override = SubResource("StandardMaterial3D_2")

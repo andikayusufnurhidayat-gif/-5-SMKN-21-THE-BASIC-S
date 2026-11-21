@@ -1,0 +1,13 @@
+UPDATE 16 (butuh Update 14 LENGKAP sudah terpasang)
+Extract & timpa ke folder project. Fokuskan Godot, tunggu import selesai, lalu Scene > Reload Saved Scene.
+
+ISI
+- Sembunyi: badan player disembunyikan, kamera mengikuti tinggi lantai, layar halus + detak jantung. Jennifer mencari beberapa titik, lalu pergi.
+- SEMUA meja kelas jadi tempat sembunyi + lemari otomatis di dinding (cek Output: "N tempat sembunyi kolong meja + N lemari").
+- Suara Jennifer (res://audio/voice/jennifer_<id>.wav) dan musik latar adaptif (res://audio/music/*.wav).
+- Wajah Jennifer berkedip dan mulutnya bergerak saat bicara; animasi baru mengintip kolong + celingak-celinguk.
+- Papan soal dan layar akhir lebih cantik.
+
+GANTI SUARA JENNIFER DENGAN REKAMAN ASLI
+Taruh file dengan nama sama di res://audio/voice/ (format .ogg lebih diutamakan dibanding .wav):
+greet, intro1, intro2, intro3, wrong, good, calm_down, cough, glue, where, saw_you, gave_up, rage
