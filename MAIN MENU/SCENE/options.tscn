@@ -1,0 +1,418 @@
+[gd_scene format=3 uid="uid://bpnqhwxdbf1sb"]
+
+[ext_resource type="Theme" path="res://MAIN MENU/THEME/menu_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/options.gd" id="2_script"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/menu_atmosphere.gd" id="3_atm"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/menu_button.gd" id="4_btn"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/cycle_button.gd" id="5_cyc"]
+
+[sub_resource type="StyleBoxFlat" id="options_panel"]
+bg_color = Color(0.04, 0.02, 0.03, 0.8)
+border_width_left = 3
+border_color = Color(0.62, 0.07, 0.09, 1.0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+content_margin_left = 22.0
+content_margin_top = 22.0
+content_margin_right = 22.0
+content_margin_bottom = 22.0
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="Atmosphere" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_atm")
+
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 36
+
+[node name="Layout" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Content/Layout"]
+layout_mode = 2
+text = "OPTIONS"
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1.0)
+theme_override_colors/font_outline_color = Color(0.25, 0, 0.02, 1.0)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 60
+
+[node name="Line" type="ColorRect" parent="Content/Layout"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 3)
+size_flags_horizontal = 0
+color = Color(0.92, 0.18, 0.18, 1.0)
+
+[node name="Panel" type="PanelContainer" parent="Content/Layout"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("options_panel")
+
+[node name="Scroll" type="ScrollContainer" parent="Content/Layout/Panel"]
+layout_mode = 2
+custom_minimum_size = Vector2(780, 0)
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="Content/Layout/Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SecAudio" type="Label" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+text = "AUDIO"
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1.0)
+theme_override_font_sizes/font_size = 18
+
+[node name="SecAudioSep" type="ColorRect" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 1)
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowMaster" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowMaster"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Content/Layout/Panel/Scroll/List/RowMaster"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 28)
+size_flags_vertical = 4
+min_value = 0
+max_value = 100
+step = 1.0
+value = 100.0
+focus_mode = 2
+
+[node name="MasterPct" type="Label" parent="Content/Layout/Panel/Scroll/List/RowMaster"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+size_flags_vertical = 4
+text = "100%"
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1.0)
+theme_override_font_sizes/font_size = 20
+
+[node name="RowMusic" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowMusic"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Content/Layout/Panel/Scroll/List/RowMusic"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 28)
+size_flags_vertical = 4
+min_value = 0
+max_value = 100
+step = 1.0
+value = 100.0
+focus_mode = 2
+
+[node name="MusicPct" type="Label" parent="Content/Layout/Panel/Scroll/List/RowMusic"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+size_flags_vertical = 4
+text = "100%"
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1.0)
+theme_override_font_sizes/font_size = 20
+
+[node name="SecControl" type="Label" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+text = "CONTROLS"
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1.0)
+theme_override_font_sizes/font_size = 18
+
+[node name="SecControlSep" type="ColorRect" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 1)
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowSens" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowSens"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Mouse Sensitivity"
+
+[node name="SensSlider" type="HSlider" parent="Content/Layout/Panel/Scroll/List/RowSens"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 28)
+size_flags_vertical = 4
+min_value = 25
+max_value = 200
+step = 1.0
+value = 200.0
+focus_mode = 2
+
+[node name="SensPct" type="Label" parent="Content/Layout/Panel/Scroll/List/RowSens"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+size_flags_vertical = 4
+text = "100%"
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1.0)
+theme_override_font_sizes/font_size = 20
+
+[node name="SecSubtitles" type="Label" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+text = "SUBTITLES"
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="SecSubtitlesSep" type="ColorRect" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 1)
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowSubOn" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowSubOn"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Subtitles"
+
+[node name="SubOnCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowSubOn"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  On  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("Off", "On")
+index = 1
+
+[node name="RowSubLang" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowSubLang"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Subtitle Language"
+
+[node name="SubLangCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowSubLang"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  English  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("English", "Bahasa Indonesia", "Português", "中文")
+index = 0
+
+[node name="SecDisplay" type="Label" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+text = "DISPLAY & PERFORMANCE"
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1.0)
+theme_override_font_sizes/font_size = 18
+
+[node name="SecDisplaySep" type="ColorRect" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 1)
+color = Color(0.5, 0.1, 0.12, 0.5)
+
+[node name="RowScreen" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowScreen"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Window Mode"
+
+[node name="FullscreenCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowScreen"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  Windowed  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("Windowed", "Fullscreen")
+index = 0
+
+[node name="RowQuality" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowQuality"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Graphics Quality"
+
+[node name="QualityCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowQuality"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  High  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("Low", "Medium", "High")
+index = 2
+
+[node name="RowFps" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowFps"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "FPS Limit"
+
+[node name="FpsLimitCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowFps"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  Unlimited  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("30", "60", "Unlimited")
+index = 2
+
+[node name="RowVsync" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowVsync"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "VSync"
+
+[node name="VsyncCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowVsync"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  On  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("Off", "On")
+index = 1
+
+[node name="RowShowFps" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowShowFps"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Show FPS"
+
+[node name="ShowFpsCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowShowFps"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  Off  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("Off", "On")
+index = 0
+
+[node name="RowEffects" type="HBoxContainer" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Content/Layout/Panel/Scroll/List/RowEffects"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
+size_flags_vertical = 4
+text = "Menu Effects (fog & dust)"
+
+[node name="EffectsCycle" type="Button" parent="Content/Layout/Panel/Scroll/List/RowEffects"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 0)
+alignment = 1
+theme_type_variation = &"CycleButton"
+text = "‹  On  ›"
+script = ExtResource("5_cyc")
+choices = PackedStringArray("Off", "On")
+index = 1
+
+[node name="Tip" type="Label" parent="Content/Layout/Panel/Scroll/List"]
+layout_mode = 2
+autowrap_mode = 3
+text = "Tip for low-end laptops: set Graphics Quality to Low, FPS Limit to 30, and Menu Effects to Off."
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_font_sizes/font_size = 16
+
+[node name="Bottom" type="HBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BackButton" type="Button" parent="Content/Layout/Bottom"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+alignment = 0
+theme_type_variation = &"PrimaryButton"
+text = "BACK"
+script = ExtResource("4_btn")
+
+[node name="ResetButton" type="Button" parent="Content/Layout/Bottom"]
+layout_mode = 2
+custom_minimum_size = Vector2(280, 0)
+alignment = 0
+text = "RESET DEFAULT"
+script = ExtResource("4_btn")
+
+[connection signal="pressed" from="Content/Layout/Bottom/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Content/Layout/Bottom/ResetButton" to="." method="_on_reset_pressed"]

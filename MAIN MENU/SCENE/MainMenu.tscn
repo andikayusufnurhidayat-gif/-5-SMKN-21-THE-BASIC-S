@@ -1,0 +1,329 @@
+[gd_scene format=3 uid="uid://hdgntc2gpjir"]
+
+[ext_resource type="Theme" path="res://MAIN MENU/THEME/menu_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/mainmenu.gd" id="2_script"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/menu_atmosphere.gd" id="3_atm"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/menu_button.gd" id="4_btn"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/school_silhouette.gd" id="7_sil"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/fence_draw.gd" id="8_fence"]
+[ext_resource type="PackedScene" path="res://MAIN MENU/SCENE/HowToPlay.tscn" id="5_htp"]
+[ext_resource type="AudioStream" path="res://audio/SMKN21_MainMenu_Horror_Piano_Loop.wav" id="6_audio"]
+
+[sub_resource type="Gradient" id="Gradient_glow"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.35, 0.5, 0.9, 0.32, 0.35, 0.5, 0.9, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_glow"]
+gradient = SubResource("Gradient_glow")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+width = 512
+height = 512
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_add"]
+blend_mode = 1
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="Atmosphere" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_atm")
+
+[node name="SchoolSilhouette" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_sil")
+
+[node name="Shapes" type="Node2D" parent="SchoolSilhouette"]
+
+[node name="MoonGlow" type="TextureRect" parent="SchoolSilhouette/Shapes"]
+unique_name_in_owner = true
+mouse_filter = 2
+material = SubResource("CanvasItemMaterial_add")
+offset_left = 540.0
+offset_top = -120.0
+offset_right = 1020.0
+offset_bottom = 340.0
+texture = SubResource("GradientTexture2D_glow")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Moon" type="Polygon2D" parent="SchoolSilhouette/Shapes"]
+color = Color(0.88, 0.9, 0.97, 1.0)
+polygon = PackedVector2Array(822.0, 110.0, 820.9, 119.3, 817.8, 128.2, 812.8, 136.2, 806.2, 142.8, 798.2, 147.8, 789.3, 150.9, 780.0, 152.0, 770.7, 150.9, 761.8, 147.8, 753.8, 142.8, 747.2, 136.2, 742.2, 128.2, 739.1, 119.3, 738.0, 110.0, 739.1, 100.7, 742.2, 91.8, 747.2, 83.8, 753.8, 77.2, 761.8, 72.2, 770.7, 69.1, 780.0, 68.0, 789.3, 69.1, 798.2, 72.2, 806.2, 77.2, 812.8, 83.8, 817.8, 91.8, 820.9, 100.7)
+
+[node name="FarBuilding" type="Node2D" parent="SchoolSilhouette/Shapes"]
+
+[node name="Body" type="Polygon2D" parent="SchoolSilhouette/Shapes/FarBuilding"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(40, 545, 960, 545, 960, 650, 40, 650)
+
+[node name="Roof1" type="Polygon2D" parent="SchoolSilhouette/Shapes/FarBuilding"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(60, 548, 115, 498, 235, 498, 290, 548)
+
+[node name="Roof2" type="Polygon2D" parent="SchoolSilhouette/Shapes/FarBuilding"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(280, 548, 335, 498, 455, 498, 510, 548)
+
+[node name="Roof3" type="Polygon2D" parent="SchoolSilhouette/Shapes/FarBuilding"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(500, 548, 555, 498, 675, 498, 730, 548)
+
+[node name="Roof4" type="Polygon2D" parent="SchoolSilhouette/Shapes/FarBuilding"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(720, 548, 775, 498, 895, 498, 950, 548)
+
+[node name="Hoop" type="Node2D" parent="SchoolSilhouette/Shapes"]
+
+[node name="Pole" type="Polygon2D" parent="SchoolSilhouette/Shapes/Hoop"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(494, 560, 500, 560, 500, 650, 494, 650)
+
+[node name="Board" type="Polygon2D" parent="SchoolSilhouette/Shapes/Hoop"]
+color = Color(0.07, 0.04, 0.07, 1.0)
+polygon = PackedVector2Array(474, 556, 520, 556, 520, 578, 474, 578)
+
+[node name="NearLeft" type="Node2D" parent="SchoolSilhouette/Shapes"]
+
+[node name="Body" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(0.025, 0.015, 0.03, 1.0)
+polygon = PackedVector2Array(0, 590, 350, 590, 350, 700, 0, 700)
+
+[node name="Roof1" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(0.025, 0.015, 0.03, 1.0)
+polygon = PackedVector2Array(0, 594, 50, 532, 150, 532, 200, 594)
+
+[node name="Roof2" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(0.025, 0.015, 0.03, 1.0)
+polygon = PackedVector2Array(180, 594, 235, 538, 315, 538, 362, 594)
+
+[node name="Window1" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(40, 612, 62, 612, 62, 638, 40, 638)
+
+[node name="Window2" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(100, 612, 122, 612, 122, 638, 100, 638)
+
+[node name="Window3" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(160, 612, 182, 612, 182, 638, 160, 638)
+
+[node name="Window4" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(235, 612, 257, 612, 257, 638, 235, 638)
+
+[node name="Window5" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearLeft"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(295, 612, 317, 612, 317, 638, 295, 638)
+
+[node name="NearRight" type="Node2D" parent="SchoolSilhouette/Shapes"]
+
+[node name="Body" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(0.025, 0.015, 0.03, 1.0)
+polygon = PackedVector2Array(650, 590, 1000, 590, 1000, 700, 650, 700)
+
+[node name="Roof1" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(0.025, 0.015, 0.03, 1.0)
+polygon = PackedVector2Array(640, 594, 690, 538, 770, 538, 822, 594)
+
+[node name="Roof2" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(0.025, 0.015, 0.03, 1.0)
+polygon = PackedVector2Array(800, 594, 850, 532, 950, 532, 1000, 594)
+
+[node name="Window1" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(700, 612, 722, 612, 722, 638, 700, 638)
+
+[node name="Window2" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(760, 612, 782, 612, 782, 638, 760, 638)
+
+[node name="Window3" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(820, 612, 842, 612, 842, 638, 820, 638)
+
+[node name="Window4" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(885, 612, 907, 612, 907, 638, 885, 638)
+
+[node name="Window5" type="Polygon2D" parent="SchoolSilhouette/Shapes/NearRight"]
+color = Color(1.0, 0.78, 0.35, 0.55)
+polygon = PackedVector2Array(945, 612, 967, 612, 967, 638, 945, 638)
+
+[node name="Fence" type="Node2D" parent="SchoolSilhouette/Shapes"]
+script = ExtResource("8_fence")
+
+[node name="Gate" type="Node2D" parent="SchoolSilhouette/Shapes"]
+
+[node name="PillarL" type="Polygon2D" parent="SchoolSilhouette/Shapes/Gate"]
+color = Color(0.42, 0.47, 0.6, 1.0)
+polygon = PackedVector2Array(388, 560, 410, 560, 410, 700, 388, 700)
+
+[node name="PillarR" type="Polygon2D" parent="SchoolSilhouette/Shapes/Gate"]
+color = Color(0.42, 0.47, 0.6, 1.0)
+polygon = PackedVector2Array(590, 560, 612, 560, 612, 700, 590, 700)
+
+[node name="CapL" type="Polygon2D" parent="SchoolSilhouette/Shapes/Gate"]
+color = Color(0.42, 0.47, 0.6, 1.0)
+polygon = PackedVector2Array(384, 552, 414, 552, 414, 562, 384, 562)
+
+[node name="CapR" type="Polygon2D" parent="SchoolSilhouette/Shapes/Gate"]
+color = Color(0.42, 0.47, 0.6, 1.0)
+polygon = PackedVector2Array(586, 552, 616, 552, 616, 562, 586, 562)
+
+[node name="Beam" type="Polygon2D" parent="SchoolSilhouette/Shapes/Gate"]
+color = Color(0.42, 0.47, 0.6, 1.0)
+polygon = PackedVector2Array(360, 572, 380, 548, 500, 534, 620, 548, 640, 572, 618, 566, 500, 552, 382, 566)
+
+[node name="Lintel" type="Polygon2D" parent="SchoolSilhouette/Shapes/Gate"]
+color = Color(0.42, 0.47, 0.6, 1.0)
+polygon = PackedVector2Array(410, 580, 590, 580, 590, 590, 410, 590)
+
+[node name="Ground" type="Polygon2D" parent="SchoolSilhouette/Shapes"]
+color = Color(0.012, 0.008, 0.016, 1.0)
+polygon = PackedVector2Array(0, 698, 1000, 698, 1000, 720, 0, 720)
+
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 26
+
+[node name="Layout" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+
+[node name="Column" type="VBoxContainer" parent="Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Content/Layout/Column"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "AFTER\nTHE BELL"
+theme_override_colors/font_color = Color(0.93, 0.91, 0.86, 1.0)
+theme_override_colors/font_shadow_color = Color(0.8, 0, 0.05, 0.45)
+theme_override_colors/font_outline_color = Color(0.25, 0, 0.02, 1.0)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 66
+
+[node name="Line" type="ColorRect" parent="Content/Layout/Column"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 3)
+size_flags_horizontal = 0
+color = Color(0.92, 0.18, 0.18, 1.0)
+
+[node name="Subtitle" type="Label" parent="Content/Layout/Column"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "The school is quiet... but you are not alone."
+theme_override_colors/font_color = Color(0.8, 0.36, 0.36, 1.0)
+theme_override_font_sizes/font_size = 20
+
+[node name="Gap" type="Control" parent="Content/Layout/Column"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 18)
+
+[node name="Buttons" type="VBoxContainer" parent="Content/Layout/Column"]
+layout_mode = 2
+unique_name_in_owner = true
+size_flags_horizontal = 0
+theme_override_constants/separation = 6
+
+[node name="PlayButton" type="Button" parent="Content/Layout/Column/Buttons"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+alignment = 0
+text = "PLAY"
+script = ExtResource("4_btn")
+theme_type_variation = &"PrimaryButton"
+
+[node name="HowToPlayButton" type="Button" parent="Content/Layout/Column/Buttons"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+alignment = 0
+text = "HOW TO PLAY"
+script = ExtResource("4_btn")
+
+[node name="OptionsButton" type="Button" parent="Content/Layout/Column/Buttons"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+alignment = 0
+text = "OPTIONS"
+script = ExtResource("4_btn")
+
+[node name="CreditButton" type="Button" parent="Content/Layout/Column/Buttons"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+alignment = 0
+text = "CREDIT"
+script = ExtResource("4_btn")
+
+[node name="QuitButton" type="Button" parent="Content/Layout/Column/Buttons"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+alignment = 0
+text = "QUIT"
+script = ExtResource("4_btn")
+
+[node name="Footer" type="Label" parent="Content/Layout"]
+layout_mode = 2
+text = "AFTER THE BELL"
+theme_override_colors/font_color = Color(1, 1, 1, 0.35)
+theme_override_font_sizes/font_size = 16
+
+[node name="HowToPlay" parent="." instance=ExtResource("5_htp")]
+visible = false
+
+[node name="Musikkmenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_audio")
+
+[connection signal="pressed" from="Content/Layout/Column/Buttons/PlayButton" to="." method="_on_start_button_pressed"]
+
+[connection signal="pressed" from="Content/Layout/Column/Buttons/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+
+[connection signal="pressed" from="Content/Layout/Column/Buttons/OptionsButton" to="." method="_on_options_pressed"]
+
+[connection signal="pressed" from="Content/Layout/Column/Buttons/CreditButton" to="." method="_on_credit_button_pressed"]
+
+[connection signal="pressed" from="Content/Layout/Column/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+
+[connection signal="closed" from="HowToPlay" to="." method="_on_back_button_pressed"]

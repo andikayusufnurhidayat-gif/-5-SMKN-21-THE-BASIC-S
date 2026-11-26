@@ -1,0 +1,406 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://MAIN MENU/THEME/menu_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://MAIN MENU/SCRIPT/how_to_play.gd" id="2_script"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tabs"]
+
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 36
+
+[node name="Panel" type="PanelContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Layout" type="VBoxContainer" parent="Margin/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Head" type="Label" parent="Margin/Panel/Layout"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "HOW TO PLAY"
+theme_override_colors/font_color = Color(0.92, 0.18, 0.18, 1.0)
+theme_override_font_sizes/font_size = 38
+
+[node name="Tabs" type="HBoxContainer" parent="Margin/Panel/Layout"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 10
+
+[node name="TabGoal" type="Button" parent="Margin/Panel/Layout/Tabs"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_type_variation = &"TabButton"
+alignment = 1
+text = "GOAL"
+button_pressed = true
+
+[node name="TabControls" type="Button" parent="Margin/Panel/Layout/Tabs"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_type_variation = &"TabButton"
+alignment = 1
+text = "CONTROLS"
+
+[node name="TabItems" type="Button" parent="Margin/Panel/Layout/Tabs"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tabs")
+theme_type_variation = &"TabButton"
+alignment = 1
+text = "ITEM & TIPS"
+
+[node name="Pages" type="VBoxContainer" parent="Margin/Panel/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GoalPage" type="ScrollContainer" parent="Margin/Panel/Layout/Pages"]
+layout_mode = 2
+unique_name_in_owner = true
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GoalPageMargin" type="MarginContainer" parent="Margin/Panel/Layout/Pages/GoalPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 16
+
+[node name="GoalText" type="RichTextLabel" parent="Margin/Panel/Layout/Pages/GoalPage/GoalPageMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 3
+text = "[b][color=#e8392f]STORY[/color][/b]\nSchool is over, but your friend is in trouble! They left all their notebooks at school out of carelessness, and had no time to go back for them because they had to rush home. A problem that ends up bothering you instead, what a burden of a friend!\n\nSo you have to go back to school at night and find every one of those notebooks. It will not be easy! The teacher here, Ms. Jennifer, loves giving pop quizzes whenever she sees you. Who knows why... maybe she has a personal problem with you.. :)\n\n[b][color=#e8392f]HOW TO WIN[/color][/b]\n[b]1. Collect 7 notebooks.[/b] Each time you pick one up, you must answer 3 questions on the board. Wrong answers make Ms. Jennifer angrier and faster, and be careful: some notebooks hold a trap question.\n\n[b]2. Collect all the key pieces.[/b] Each piece has its own condition: hold a button for a few seconds (it is noisy, Ms. Jennifer will come!), insert 1 coin, or take it only while Ms. Jennifer is far away. When the key is complete, the Gate Key goes into your inventory.\n\n[b]3. Escape through the gate.[/b] Once all notebooks are collected, Ms. Jennifer goes wild! Open the gate with the Gate Key (right-click from up close), then run out.\n\n[b][color=#e8392f]GAME OVER[/color][/b]\nIf Ms. Jennifer catches you, it is game over and you return to the main menu.\n\nHave fun, and good luck!"
+
+[node name="ControlsPage" type="ScrollContainer" parent="Margin/Panel/Layout/Pages"]
+layout_mode = 2
+unique_name_in_owner = true
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+
+[node name="ControlsPageMargin" type="MarginContainer" parent="Margin/Panel/Layout/Pages/ControlsPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 16
+
+[node name="Grid" type="GridContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 14
+
+[node name="Keys0" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys0"]
+layout_mode = 2
+text = "W"
+theme_type_variation = &"KeyChip"
+
+[node name="Key1" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys0"]
+layout_mode = 2
+text = "A"
+theme_type_variation = &"KeyChip"
+
+[node name="Key2" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys0"]
+layout_mode = 2
+text = "S"
+theme_type_variation = &"KeyChip"
+
+[node name="Key3" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys0"]
+layout_mode = 2
+text = "D"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Walk."
+
+[node name="Keys1" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys1"]
+layout_mode = 2
+text = "Shift"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc1" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Run. Uses stamina; when it runs out you must wait for it to recover."
+
+[node name="Keys2" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys2"]
+layout_mode = 2
+text = "Mouse"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc2" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Look around."
+
+[node name="Keys3" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys3"]
+layout_mode = 2
+text = "Arrow Keys"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc3" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "You can also look with the arrow keys (handy on a touchpad)."
+
+[node name="Keys4" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys4"]
+layout_mode = 2
+text = "Space"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc4" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Hold to look behind you, release to look forward again. Check if Ms. Jennifer is chasing you!"
+
+[node name="Keys5" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys5"]
+layout_mode = 2
+text = "E"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc5" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Hide in a locker or under a desk when close, press E again to leave. Also used to take key pieces (hold if asked)."
+
+[node name="Keys6" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys6"]
+layout_mode = 2
+text = "Left Click"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc6" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Pick up notebooks and items. At the vending machine: change the selected item."
+
+[node name="Keys7" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys7"]
+layout_mode = 2
+text = "Right Click"
+theme_type_variation = &"KeyChip"
+
+[node name="Or1" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys7"]
+layout_mode = 2
+text = "or"
+modulate = Color(1, 1, 1, 0.5)
+theme_override_font_sizes/font_size = 18
+
+[node name="Key2" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys7"]
+layout_mode = 2
+text = "F"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc7" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Use the selected item: throw, blow the whistle, place glue, open a locker / the gate, or buy from the vending machine with a coin."
+
+[node name="Keys8" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys8"]
+layout_mode = 2
+text = "1"
+theme_type_variation = &"KeyChip"
+
+[node name="Key1" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys8"]
+layout_mode = 2
+text = "2"
+theme_type_variation = &"KeyChip"
+
+[node name="Key2" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys8"]
+layout_mode = 2
+text = "3"
+theme_type_variation = &"KeyChip"
+
+[node name="Key3" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys8"]
+layout_mode = 2
+text = "4"
+theme_type_variation = &"KeyChip"
+
+[node name="Or4" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys8"]
+layout_mode = 2
+text = "or"
+modulate = Color(1, 1, 1, 0.5)
+theme_override_font_sizes/font_size = 18
+
+[node name="Key5" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys8"]
+layout_mode = 2
+text = "Mouse Wheel"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc8" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Select an inventory slot. Slot 4 only unlocks when you find a Backpack."
+
+[node name="Keys9" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys9"]
+layout_mode = 2
+text = "Type"
+theme_type_variation = &"KeyChip"
+
+[node name="Key1" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys9"]
+layout_mode = 2
+text = "Enter"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc9" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Answer the questions on the board: type the answer, then press Enter."
+
+[node name="Keys10" type="HBoxContainer" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="Key0" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid/Keys10"]
+layout_mode = 2
+text = "Esc"
+theme_type_variation = &"KeyChip"
+
+[node name="Desc10" type="Label" parent="Margin/Panel/Layout/Pages/ControlsPage/ControlsPageMargin/Grid"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 0)
+size_flags_horizontal = 3
+autowrap_mode = 3
+text = "Go back / close a panel in the menus."
+
+[node name="ItemsPage" type="ScrollContainer" parent="Margin/Panel/Layout/Pages"]
+layout_mode = 2
+unique_name_in_owner = true
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+visible = false
+
+[node name="ItemsPageMargin" type="MarginContainer" parent="Margin/Panel/Layout/Pages/ItemsPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 16
+
+[node name="ItemsText" type="RichTextLabel" parent="Margin/Panel/Layout/Pages/ItemsPage/ItemsPageMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 3
+text = "[b][color=#e8392f]ITEMS[/color][/b]\n[b]Baking Soda[/b] (throw): blocks the floor, Ms. Jennifer cannot pass for about 12 seconds.\n[b]Chalkboard Eraser[/b] (throw): if it hits, Ms. Jennifer coughs and stops for about 3 seconds.\n[b]Whistle[/b]: Ms. Jennifer is drawn toward the sound. Lure her away!\n[b]Glue[/b]: place it on the floor. If she steps in it, Ms. Jennifer moves slowly for about 5 seconds.\n[b]Highlighter[/b]: makes hidden notebooks glow for about 10 seconds.\n[b]Iced Tea[/b]: restores stamina and makes you faster for about 8 seconds.\n[b]Chocolate[/b]: instantly refills your stamina.\n[b]Coin[/b]: buys an item from the vending machine (1 coin = 1 item), and is needed for one of the key pieces.\n[b]Locker Key[/b]: opens a locked locker (face the locker, right-click).\n[b]Backpack[/b]: instantly adds 1 inventory slot.\n[b]Gate Key[/b]: made from the key pieces, opens the school gate.\n\n[b][color=#e8392f]TIPS[/color][/b]\n• Ms. Jennifer starts chasing you after the first notebook. If she is close, hide ([E]) and stay still.\n• Look behind you (hold Space) before you decide to run.\n• Do not waste stamina. When it runs out, you cannot run until it recovers.\n• Answer carefully. Wrong answers make her faster.\n• Noise is dangerous: taking certain key pieces will draw Ms. Jennifer to you."
+
+[node name="BackButton" type="Button" parent="Margin/Panel/Layout"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+size_flags_horizontal = 4
+alignment = 1
+theme_type_variation = &"PrimaryButton"
+text = "BACK"

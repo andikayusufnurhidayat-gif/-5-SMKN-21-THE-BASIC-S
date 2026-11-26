@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vldlcmncy51w"]
+
+[ext_resource type="Script" uid="uid://bhf6pkly7iy24" path="res://scripts/vending_machine.gd" id="1_vm"]
+
+[node name="VendingMachine" type="Node3D" unique_id=161876601]
+script = ExtResource("1_vm")
